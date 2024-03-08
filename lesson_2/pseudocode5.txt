@@ -1,0 +1,32 @@
+Given two lists of numbers, "list1" and "list2"
+
+Initialize integer variable "index" and list variable "new_list"
+Iterate through both "list1" and "list2" simultaneously,
+adding the element at "index" in "list1" to "new_list",
+then the element at "index" in "list2" to "new_list".
+
+Return the "new_list" to caller after done merging lists.
+
+
+
+
+
+
+
+
+
+START
+
+Given two lists of integers, list1, list2
+
+SET new_list = []
+SET index = 1
+
+WHILE index <= length of list1
+    add the element of list1 at index to new_list
+    add the element of list2 at index to new_list
+    index += 1
+
+PRINT new_list
+
+END

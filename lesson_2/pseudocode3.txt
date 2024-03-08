@@ -1,0 +1,30 @@
+Given a list of integers, "numbers"
+
+Initialize "new_numbers" list
+Iterate through "numbers" in such a way as to skip every other number
+    - Add each element iterated through in "numbers" to "new_numbers"
+
+Return the "new_numbers" list to the caller.
+
+
+
+
+
+
+
+
+
+START
+
+Given a list of integers, numbers
+
+SET new_numbers = []
+iterator = 1
+
+WHILE iterator <= length of numbers
+    add element of numbers at iterator's index to new_numbers
+    iterator += 2
+
+PRINT new_numbers
+
+END

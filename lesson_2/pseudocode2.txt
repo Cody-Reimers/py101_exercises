@@ -1,0 +1,29 @@
+Given a list containing various string literals, "words"
+
+Initialize variable "phrase" as empty string
+Iterate through "words", concatenating each element with "phrase"
+
+return "phrase" to the caller
+
+
+
+
+
+
+
+
+
+START
+
+Given a list of string literals, words
+
+SET phrase = ""
+SET iterator = 1
+
+WHILE iterator <= length of words
+    concatenate phrase with the element of words at iterator's index
+    iterator += 1
+
+PRINT phrase
+
+END

@@ -1,0 +1,40 @@
+Given a string literal, "text", and a target character, "char"
+
+Create variable "text_as_list" where each character
+in "text" corresponds to an element in "text_as_list"
+Initialize variables "counter" and "index".
+Iterate through "text_as_list" one element at a time.
+    - If an element in "text_as_list" is the
+        same as "char", increment "counter"
+    - Once "counter" reaches 3, store current element
+        index of "text_as_list" in variable "index".
+
+If "counter" is 3, return the value of index to the
+caller, otherwise return None to the caller.
+
+
+
+
+
+
+
+
+
+START
+
+Given a string literal, text, and a target character, char
+
+SET text_as_list = list of all individual characters in text
+SET counter = 0
+SET index = 1
+
+WHILE index <= length of text_as_list
+    IF char = element at current index of text_as_list
+        counter += 1
+    IF counter = 3
+        PRINT index
+    index += 1
+
+PRINT None
+
+END
