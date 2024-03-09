@@ -1,0 +1,31 @@
+{
+    "en": {
+        "welcome": "\n~~~~~~~~~~Welcome to calculator.py!~~~~~~~~~~",
+        "introduction_line1": "\n    Please use raw numbers with no formatting,\n",
+        "introduction_line2": "    the following operators are supported:\n",
+        "introduction_line3": "    \"+\" (addition), \"-\" (subtraction),\n",
+        "introduction_line4": "    \"*\" (multiplication), \"/\" (division)\n",
+        "request_num1": "What's the first number?",
+        "request_num2": "What's the second number?",
+        "invalid_num": "That input won't work; it must be an integer.",
+        "request_operation": "What operation do you want to perform?",
+        "invalid_operation": "That input won't work; you must\nenter \"+\", \"-\", \"*\", or \"/\"",
+        "prompt_for_continue": "Go again? Enter \"q\" to quit.",
+        "farewell": "\n~~~~~~~~~~Thank you for running calculator.py!~~~~~~~~~~\n"
+    },
+    
+    "es": {
+        "welcome": "\n~~~~~~~~~~Bienvenida a la calculadora.py!~~~~~~~~~~",
+        "introduction_line1": "\n    Utilice números sin formato y sin formato,\n",
+        "introduction_line2": "    Se admiten los siguientes operadores:\n",
+        "introduction_line3": "    \"+\" (suma), \"-\" (sustracción),\n",
+        "introduction_line4": "    \"*\" (multiplicación), \"/\" (división)\n",
+        "request_num1": "Cual es el primer numero?",
+        "request_num2": "Cual es el segundo numero?",
+        "invalid_num": "Esa entrada no funcionará; debe ser un número entero.",
+        "request_operation": "¿Qué operación quieres realizar?",
+        "invalid_operation": "Esa entrada no funcionará; debes \ningresar \"+\", \"-\", \"*\", o \"/\"",
+        "prompt_for_continue": "Ve otra vez? Ingresar \"q\" abandonar.",
+        "farewell": "\n~~~~~~~~~~Gracias por ejecutar la calculadora.py!~~~~~~~~~~\n"
+    }
+}
