@@ -24,9 +24,7 @@ def proper_grouping(particle_type):
     return True
 
 def calculate():
-    evaluation = equation[:]
-
-    if len(evaluation) == 1:
+    if len(equation) == 1:
         return simple_eval(types[0])
     if types[-1] == "operator":
         return simple_eval("operator")
@@ -34,33 +32,33 @@ def calculate():
     operations_remaining = types.count("operator")
 
     while operations_remaining:
-        if "**" in evaluation:
-            index = find_first(evaluation, ["**"])
-            mutate_lists(evaluation, index, "**")
+        if "**" in equation:
+            index = find_first(["**"])
+            mutate_lists(index, "**")
             operations_remaining -= 1
             continue
 
-        if ("*" in evaluation) or ("/" in evaluation) or ("//" in evaluation):
-            index = find_first(evaluation, ["*", "/", "//"])
-            if evaluation[index] == "*":
-                mutate_lists(evaluation, index, "*")
-            elif evaluation[index] == "/":
-                mutate_lists(evaluation, index, "/")
-            elif evaluation[index] == "//":
-                mutate_lists(evaluation, index, "//")
+        if ("*" in equation) or ("/" in equation) or ("//" in equation):
+            index = find_first(["*", "/", "//"])
+            if equation[index] == "*":
+                mutate_lists(index, "*")
+            elif equation[index] == "/":
+                mutate_lists(index, "/")
+            elif equation[index] == "//":
+                mutate_lists(index, "//")
             operations_remaining -= 1
             continue
 
-        if ("+" in evaluation) or ("-" in evaluation):
-            index = find_first(evaluation, ["+", "-"])
-            if evaluation[index] == "+":
-                mutate_lists(evaluation, index, "+")
-            elif evaluation[index] == "-":
-                mutate_lists(evaluation, index, "-")
+        if ("+" in equation) or ("-" in equation):
+            index = find_first(["+", "-"])
+            if equation[index] == "+":
+                mutate_lists(index, "+")
+            elif equation[index] == "-":
+                mutate_lists(index, "-")
             operations_remaining -= 1
             continue
 
-    return evaluation[0]
+    return equation[0]
 
 def simple_eval(identity):
     match identity:
@@ -71,38 +69,38 @@ def simple_eval(identity):
         case _:
             return "ERROR/INVALID"
 
-def find_first(evaluation, targets):
-    for element in evaluation[1::2]:
+def find_first(targets):
+    for element in equation[1::2]:
         for target in targets:
             if element == target:
-                return evaluation.index(target)
+                return equation.index(target)
 
     return None
 
-def mutate_lists(evaluation, i, op):
-    num1 = get_num(evaluation[i - 1], types[i - 1])
-    num2 = get_num(evaluation[i + 1], types[i + 1])
+def mutate_lists(i, op):
+    num1 = get_num(equation[i - 1], types[i - 1])
+    num2 = get_num(equation[i + 1], types[i + 1])
 
     match op:
         case "**":
-            evaluation[i - 1] = num1 ** num2
+            equation[i - 1] = num1 ** num2
         case "*":
-            evaluation[i - 1] = num1 * num2
+            equation[i - 1] = num1 * num2
         case "/":
-            evaluation[i - 1] = num1 / num2
+            equation[i - 1] = num1 / num2
         case "//":
-            evaluation[i - 1] = num1 // num2
+            equation[i - 1] = num1 // num2
         case "+":
-            evaluation[i - 1] = num1 + num2
+            equation[i - 1] = num1 + num2
         case "-":
-            evaluation[i - 1] = num1 - num2
+            equation[i - 1] = num1 - num2
 
-    if isinstance(evaluation[i - 1], int):
+    if isinstance(equation[i - 1], int):
         types[i - 1] = "integer"
-    elif isinstance(evaluation[i - 1], float):
+    elif isinstance(equation[i - 1], float):
         types[i - 1] = "float"
 
-    del evaluation[i:i + 2]
+    del equation[i:i + 2]
     del types[i:i + 2]
 
 def get_num(num_str, data_type):
