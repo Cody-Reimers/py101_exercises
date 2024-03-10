@@ -1,0 +1,27 @@
+{
+    "en": {
+        "welcome": "Welcome to the Rock-Paper-Scissors game!",
+        "quitting": "Exiting Rock-Paper-Scissors now...",
+        "thanks": "Thanks for running the Rock-Paper-Scissors game!",
+
+        "choices_intro": "Pick one of the following to play the game:",
+        "quit_intro": "Or you can choose to",
+        "choices": [
+            "quit",
+            "rock",
+            "paper",
+            "scissors"
+        ],
+
+        "your_move": "You chose",
+        "computer_move": "and the computer chose",
+
+        "end_states": {
+            "loss": "You lost!",
+            "tie": "You tied!",
+            "victory": "You won!"
+        },
+
+        "not_in_list": "The list didn't contain one or both of the elements!"
+    }
+}
