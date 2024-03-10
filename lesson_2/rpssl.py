@@ -6,7 +6,7 @@ LANGUAGE = "en"
 with open("rps_messages.json", "r") as file:
     SOURCE_TEXT = json.load(file)[LANGUAGE]
 
-VALID_CHOICES = SOURCE_TEXT["choices"][:3]
+VALID_CHOICES = SOURCE_TEXT["choices"]
 QUIT = VALID_CHOICES[0]
 MOVE_CHOICES = VALID_CHOICES[1:]
 
@@ -27,6 +27,10 @@ def display_end_state(user, computer):
     offset = find_index_offset(computer, user, MOVE_CHOICES)
 
     match offset % len(MOVE_CHOICES):
+        case 4:
+            print("    " + messages["victory"])
+        case 3:
+            print("    " + messages["loss"])
         case 2:
             print("    " + messages["victory"])
         case 1:

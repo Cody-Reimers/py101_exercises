@@ -10,7 +10,9 @@
             "quit",
             "rock",
             "paper",
-            "scissors"
+            "scissors",
+            "spock",
+            "lizard"
         ],
 
         "your_move": "You chose",
