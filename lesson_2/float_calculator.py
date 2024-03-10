@@ -1,3 +1,11 @@
+import json
+
+def error_message():
+    message = ""
+    message += MESSAGES["error1"] + MESSAGES["error2"] + MESSAGES["error3"]
+    message += f"{VALID_OPERATORS};\n" + MESSAGES["error4"]
+    return message
+
 def valid_float(number_str):
     try:
         float(number_str)
@@ -110,32 +118,15 @@ def get_num(num_str, data_type):
         case "float":
             return float(num_str)
 
-print("""
-    This program can handle integer numbers and decimal numbers.
-    Other than numbers, this program supports the following symbols:
-    "+" (addition), "-" (subtraction), "*" (multiplication),
-    "/" (decimal divison), "//" (integer divison), and "**" (exponents).
-    
-    Each time the calculator asks you for input, you must:
-    enter only a number; enter a single valid operation symbol;
-    or input "delete", "quit", or "complete".
-    
-    Enter "delete" to remove the last number or operation symbol;
-    enter "quit" to let the calculator know you are done;
-    enter "complete" to run a calculation.
-    
-    The calculator will print what the calculation currently
-    looks like as you go, to improve interactivity.
-"""
-)
-
 VALID_OPERATORS = ["+", "-", "*", "/", "//", "**"]
 
-ERROR_MESSAGE = ("\n    Your input was not validated. Make sure you\n"
-    "    use proper grouping rules, and that your input is:\n"
-    "    a number (integers like \"42\" or decimals like \"3.14159\");\n"
-    f"    an operator {VALID_OPERATORS};\n"
-    "    or \"delete\", \"quit\", or \"complete\"\n")
+with open("float_calculator.json", "r") as file:
+    MESSAGES = json.load(file)
+
+print(MESSAGES["intro1"], MESSAGES["intro2"], MESSAGES["intro3"],
+    MESSAGES["intro4"], MESSAGES["intro5"], MESSAGES["intro6"],
+    MESSAGES["intro7"], MESSAGES["intro8"], MESSAGES["intro9"],
+    MESSAGES["intro10"], MESSAGES["intro11"], MESSAGES["intro12"])
 
 equation = []
 types = []
@@ -154,7 +145,7 @@ while True:
             del equation[-1]
             del types[-1]
         except IndexError:
-            print("You haven't entered anything yet!")
+            print(MESSAGES["empty_list_error"])
         continue
 
     if next_particle == "complete":
@@ -162,14 +153,14 @@ while True:
             print("".join(equation) + f" = {calculate()}")
             equation.clear()
             types.clear()
-            print("Beginning work on a new calculation...")
+            print(MESSAGES["begin_again"])
         else:
-            print("You haven't entered anything yet!")
+            print(MESSAGES["empty_list_error"])
         continue
 
     if next_particle.isnumeric():
         if not proper_grouping("number"):
-            print(ERROR_MESSAGE)
+            print(error_message())
         else:
             equation.append(next_particle)
             types.append("integer")
@@ -177,7 +168,7 @@ while True:
 
     if valid_float(next_particle):
         if not proper_grouping("number"):
-            print(ERROR_MESSAGE)
+            print(error_message())
         else:
             equation.append(next_particle)
             types.append("float")
@@ -185,13 +176,13 @@ while True:
 
     if next_particle in VALID_OPERATORS:
         if not proper_grouping("operator"):
-            print(ERROR_MESSAGE)
+            print(error_message())
         else:
             equation.append(next_particle)
             types.append("operator")
         continue
 
 #   If all else fails....
-    print(ERROR_MESSAGE)
+    print(error_message())
 
-print("\nThank you for running float_calculator.py\n")
+print(MESSAGES["farewell"])

@@ -1,0 +1,23 @@
+{
+    "error1": "\n    Your input was not validated. Make sure you\n",
+    "error2": "    use proper grouping rules, and that your input is:\n",
+    "error3": "    an operator ",
+    "error4": "    or \"delete\", \"quit\", or \"complete\"\n",
+
+    "intro1": "\n    This program can handle integer numbers and decimal numbers.\n",
+    "intro2": "   Other than numbers, this program supports the following symbols:\n",
+    "intro3": "   \"+\" (addition), \"-\" (subtraction), \"*\" (multiplication),\n",
+    "intro4": "   \"/\" (decimal divison), \"//\" (integer divison), and \"**\" (exponents).\n",
+    "intro5": "\n    Each time the calculator asks you for input, you must:\n",
+    "intro6": "   enter only a number; enter a single valid operation symbol;\n",
+    "intro7": "   or input \"delete\", \"quit\", or \"complete\".\n",
+    "intro8": "\n    Enter \"delete\" to remove the last number or operation symbol;\n",
+    "intro9": "   enter \"quit\" to let the calculator know you are done;\n",
+    "intro10": "   enter \"complete\" to run a calculation.\n",
+    "intro11": "\n    The calculator will print what the calculation currently\n",
+    "intro12": "   looks like as you go, to improve interactivity.\n",
+
+    "empty_list_error": "\n    You haven't entered anything yet!\n",
+    "begin_again": "\n    Beginning work on a new calculation...\n",
+    "farewell": "\nThank you for running float_calculator.py\n"
+}
