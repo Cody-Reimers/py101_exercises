@@ -120,7 +120,7 @@ def get_num(num_str, data_type):
 
 VALID_OPERATORS = ["+", "-", "*", "/", "//", "**"]
 
-with open("float_calculator.json", "r") as file:
+with open("float_calculator_messages.json", "r") as file:
     MESSAGES = json.load(file)
 
 print(MESSAGES["intro1"], MESSAGES["intro2"], MESSAGES["intro3"],
