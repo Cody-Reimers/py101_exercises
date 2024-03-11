@@ -78,7 +78,7 @@ def get_user_choice():
                 ", ".join(MOVE_CHOICES))
             print("    " + SOURCE_TEXT["quit_intro"], f"\"{QUIT}\"\n")
 
-        choice = input("===> ")
+        choice = input("===> ").strip()
 
     abbreviation = starts_with_abbreviation(choice)
 
