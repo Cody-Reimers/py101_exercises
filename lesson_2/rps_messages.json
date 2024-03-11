@@ -15,13 +15,22 @@
             "lizard"
         ],
 
+        "error_guide": [
+            "",
+            "Make sure you correctly type in one of the allowed",
+            "moves, or that you type in \"quit\". Abbreviations",
+            "like \"q\",instead of \"quit\", are allowed."
+        ],
+
         "your_move": "You chose",
         "computer_move": "and the computer chose",
 
         "end_states": {
             "loss": "You lost!",
             "tie": "You tied!",
-            "victory": "You won!"
+            "victory": "You won!",
+            "set_loss": "The computer player is the winner of this set!",
+            "set_victory": "You are the winner of this set!"
         },
 
         "not_in_list": "The list didn't contain one or both of the elements!"
