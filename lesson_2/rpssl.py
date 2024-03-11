@@ -27,7 +27,8 @@ def generate_unique_abbreviations(collection):
 
         is_unique = check_for_uniqueness(abbreviations)
 
-    remove_empty_strings(abbreviations)
+    while "" in abbreviations:
+        abbreviations.remove("")
 
     return abbreviations
 
@@ -52,11 +53,6 @@ def check_for_uniqueness(collection):
             is_unique.append(False)
 
     return is_unique
-
-def remove_empty_strings(collection):
-    while "" in collection:
-        index = collection.index("")
-        del collection[index]
 
 def determine_longest(collection):
     longest = 0
@@ -153,13 +149,58 @@ def find_index_offset(element1, element2, source):
 
     return num1 - num2
 
+def gross_add_choice_space(times):
+    for _ in range(times):
+        for move in MOVE_CHOICES:
+            if computer_choice_space.count(move) < 24:
+                computer_choice_space.append(move)
+
+#   The number of times moves are repeated in the computer_choice_space,
+#   and the number of additions and subtractions from the
+#   computer_choice_space are arbitrary, based on what looks good to me.
+
+def decide_adjustment(user, computer):
+    offset = find_index_offset(computer, user, MOVE_CHOICES)
+
+    match offset % len(MOVE_CHOICES):
+        case 0:
+            gross_add_choice_space(1)
+            adjust_choice_space(computer, -2)
+        case 1:
+            adjust_choice_space(computer, 3)
+        case 2:
+            adjust_choice_space(computer, -3)
+        case 3:
+            adjust_choice_space(computer, 3)
+        case 4:
+            adjust_choice_space(computer, -3)
+
+def adjust_choice_space(move, times):
+    if times > 0:
+        for _ in range(times):
+            if computer_choice_space.count(move) < 24:
+                computer_choice_space.append(move)
+            else:
+                break
+    elif times < 0:
+        for _ in range(-times):
+            if computer_choice_space.count(move) > 1:
+                computer_choice_space.remove(move)
+            else:
+                break
+
+#   MAIN BODY
+
 print("\n    ~~~~" + SOURCE_TEXT["welcome"] + "~~~~\n")
 
 game_history = []
 
+computer_choice_space = []
+gross_add_choice_space(12)
+
 while True:
     user_choice = get_user_choice()
-    computer_choice = random.choice(MOVE_CHOICES)
+    computer_choice = random.choice(computer_choice_space)
 
     if user_choice == QUIT:
         print("\n    " + SOURCE_TEXT["quitting"] + "")
@@ -170,5 +211,6 @@ while True:
 
     update_game_history(user_choice, computer_choice)
     display_end_state(user_choice, computer_choice)
+    decide_adjustment(user_choice, computer_choice)
 
 print("    ~~~~" + SOURCE_TEXT["thanks"] + "~~~~\n")
